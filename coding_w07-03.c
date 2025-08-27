@@ -1,21 +1,24 @@
 #include <stdio.h>
 
 int main() {
-    int x, y; // ตัวแปรสำหรับเก็บตัวเลขสองตัวจากผู้ใช้
+    int level;
 
-    // รับค่าจากผู้ใช้
-    printf("Enter first number (x): ");
-    scanf("%d", &x);
-    printf("Enter second number (y): ");
-    scanf("%d", &y);
+    printf("Enter level (1-4): ");
+    scanf("%d", &level);
 
-    // เปรียบเทียบค่า x และ y
-    if (x > y) {
-    printf("x is greater than y\n"); // แสดงผลเมื่อ x มีค่ามากกว่า y
-    } else if (x < y) {
-        printf("x is less than y\n"); // แสดงผลเมื่อ x มีค่าน้อยกว่า y
+    // ตรวจสอบ level นอกช่วง
+    if (level <= 0) {
+        printf("The level below 1 is not allowed\n");
+    } else if (level > 4) {
+        printf("The level above 4 is not allowed\n");
     } else {
-        printf("x is equal to y\n"); // แสดงผลเมื่อ x เท่ากับ y
+    // switch สำหรับ level 1-4
+    switch (level) {
+            case 1: printf("Beginner\n"); break;
+            case 2: printf("Intermediate\n"); break;
+            case 3: printf("Advanced\n"); break;
+            case 4: printf("Expert\n"); break;
+        }
     }
 
     return 0;
